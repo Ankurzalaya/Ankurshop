@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{%block content %}
+
+{% for product in products %}
+<tr>
+    <td class="product-thumbnail">
+
+        <a href="#">
+            <img class="img-responsive ml-15px" style="height:350px;width:250px;" src="{{product.image.url}}"/>
+        </a>
+    </td>
+    <td class="product-name"><a href="#">{{product.name}} </a></td>
+    <td class="product-price-cart"><span class="amount">{{product.price}}</span></td>
+    <div>
+        <a href="{% url 'shop:cart_add' product.id %}" class="btn btn-primary" style="height:40px; width:100px;">Addtocart</a>
+<a href="{% url 'shop:Wishlistadd' product.id%}" class="btn btn-primary" style="height:50px; width:100px;">Addtowishlist</a>
+      </div>
+</tr>
+{% endfor %}
+
+{% endblock %}

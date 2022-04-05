@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block content%}
+
+{% load static %}
+
+<h1>Hello {{user.username}}</h1>
+<div class=" row"></div>
+ 
+<a href="{% url 'shop:Wishlist_clear' %}"onclick="return confirm('Are you sure')">Clear Wishlist </a>
+
+{% for Product in prod %}
+
+<div class="column">
+  {{Product.pubdate}}
+
+
+  <div class="card" style="width: 18rem; ">
+    <img class="card-img-top" src="{{ Product.product.image.url}}" alt="Card image cap">
+    
+    
+    <div class="card-body">
+      <h5 class="card-title" style="color:black;"> {{ Product.product.name}}</h5>
+      <h5 class="card-title" style="color:black;">{{ Product.product.categorey}}</h5>
+      <h6 class="card-price" style="color:black;">{{ Product.product.price}}Rs only</h6>
+      <a href="{% url 'shop:cart_add' Product.product.id %}" class="btn btn-primary" style="height:40px; width:95x;">AddCart</a>
+      <a  class="primary-btn" href="{% url 'shop:Wishlist_item_delete' Product.product.id %}"onclick="return confirm('Are you sure')">Delete</a>
+    </div>
+  </div>
+</div>
+</div>
+{% endfor %}
+
+</div>
+{% endblock %}
