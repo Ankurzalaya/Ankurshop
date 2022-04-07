@@ -230,3 +230,9 @@ def Succes(request):
     else:
         # TODO : Show payment fail message to user.
         return render(request, "thankyou.html", {"status": False})
+
+def Order(request):
+    Order = OrderLine.objects.all()
+    print(OrderLine)
+
+    return render(request,"order.html")

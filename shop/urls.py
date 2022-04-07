@@ -28,6 +28,7 @@ urlpatterns = [
         name="Wishlist_item_delete",
     ),
     path("Wishlist_clear/", views.Wishlistclear, name="Wishlist_clear"),
+   
 ]
 
 app_name = "shop"
